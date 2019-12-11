@@ -8,10 +8,10 @@ function TicketList( {tickets} ) {
 
         {
             tickets.map(ticket => {
-                return <Ticket data = { ticket }/>;
+                return <Ticket data = { ticket } key = { ticket.id }/>;
             })
         }
-        
+
     </div>
   );
 }

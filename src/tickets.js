@@ -6,7 +6,7 @@ export const tickets = [
       city: 'Łódź',
       country: 'Polska',
       imageFront: 'assets/260-zł-11.jpg',
-      imageBack: '',
+      imageBack: 'assets/260-zł-11_back.jpg',
       series: 'D'
     },
     {
