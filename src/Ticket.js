@@ -3,9 +3,6 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 // TODO make it functional again???
 class Ticket extends Component {
-    constructor() {
-        super();
-    }
 
     render() {
         const hasBackImage = this.props.data.imageBack !== undefined && this.props.data.imageBack !== '';
@@ -13,8 +10,8 @@ class Ticket extends Component {
 
         if (hasBackImage) {
             flipButton = <button type="button"
-            className='absolute right-0 bottom-0 bg-transparent grow bn outline-0 pointer'
-            onClick={() => this.flippy.toggle()}><img src='assets/rotate_icon.png'></img></button>;
+            className='absolute right-0 bottom-0 bg-transparent grow-large bn outline-0 pointer'
+            onClick={() => this.flippy.toggle()}><img alt='' src='assets/rotate_icon.png'></img></button>;
         }
 
         return (
