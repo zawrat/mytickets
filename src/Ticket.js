@@ -1,35 +1,38 @@
 import React, { Component } from 'react';
-import ReactCardFlip from 'react-card-flip';
+import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
+
+// TODO make it functional again???
 class Ticket extends Component {
     constructor() {
         super();
-
-        this.state = {
-            showBack: false
-        }
-    }
-
-    showBackImage = () => {
-        if (this.props.data.imageBack !== undefined && this.props.data.imageBack !== '') {
-            this.setState( { showBack: !this.state.showBack} )
-        }
     }
 
     render() {
-        return (
-            <div className='dib br3 ma3 bw2 shadow-5 tc' onClick = { this.showBackImage }>
-                <ReactCardFlip isFlipped={this.state.showBack} flipSpeedBackToFront = {0.5}>
-                    <div>
-                        <img alt = '' src={ this.props.data.imageFront }></img>
-                    </div>
+        const hasBackImage = this.props.data.imageBack !== undefined && this.props.data.imageBack !== '';
+        let flipButton;
 
-                    <div>
-                        <img alt = '' src={ this.props.data.imageBack }></img>
-                    </div>
-                </ReactCardFlip>
+        if (hasBackImage) {
+            flipButton = <button type="button" className='absolute right-0 bottom-0' onClick={() => this.flippy.toggle()}>Toggle Me!</button>;
+        }
+
+        return (
+            <div className='dib ma3'>
+                <Flippy flipOnHover={false}
+                    flipOnClick={false}
+                    flipDirection="horizontal"
+                    ref={(r) => this.flippy = r}>
+                    <FrontSide className='shadow-5 br3 pa0'>
+                        <img alt='' src={this.props.data.imageFront}></img>
+                        {flipButton}
+                    </FrontSide>
+                    <BackSide className='shadow-5 br3 pa0'>
+                        <img alt='' src={this.props.data.imageBack}></img>
+                        {flipButton}
+                    </BackSide>
+                </Flippy>
             </div>
-          );
+        );
     }
 }
 
