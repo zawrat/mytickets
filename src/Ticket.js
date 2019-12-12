@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
-
 // TODO make it functional again???
 class Ticket extends Component {
     constructor() {
@@ -13,7 +12,9 @@ class Ticket extends Component {
         let flipButton;
 
         if (hasBackImage) {
-            flipButton = <button type="button" className='absolute right-0 bottom-0' onClick={() => this.flippy.toggle()}>Toggle Me!</button>;
+            flipButton = <button type="button"
+            className='absolute right-0 bottom-0 bg-transparent grow bn outline-0 pointer'
+            onClick={() => this.flippy.toggle()}><img src='assets/rotate_icon.png'></img></button>;
         }
 
         return (
